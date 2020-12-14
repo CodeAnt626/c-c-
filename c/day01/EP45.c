@@ -15,22 +15,23 @@
  */
 
 #include<stdio.h>
+#include <inttypes.h>
 
-long long Triangle(long long n) {
+int64_t Triangle(int64_t n) {
     return n * (n + 1) / 2;
 }
 
-long long Pentagonal(long long n) {
+int64_t Pentagonal(int64_t n) {
     return n * (3 * n - 1) / 2;
 }
 
-long long Hexagonal(long long n) {
+int64_t Hexagonal(int64_t n) {
     return n * (2 * n - 1);
 }
 
 // n:范围 x:被查找数
-long long binary_search(long long (*num)(long long), long long n, long long x) {
-    long long head = 0, tail = n - 1, mid;
+int64_t binary_search(int64_t (*num)(int64_t), int64_t n, int64_t x) {
+    int64_t head = 0, tail = n - 1, mid;
     while (head <= tail) {
         mid = (head + tail) >> 1;
         if (num(mid) < 0) printf("erro\n");
@@ -42,13 +43,13 @@ long long binary_search(long long (*num)(long long), long long n, long long x) {
 }
 
 int main() {
-    long long n = 285;
+    int64_t n = 285;
     while (1) {
         n++;
-        long long val = Triangle(n);
+        int64_t val = Triangle(n);
         if (binary_search(Pentagonal, val, val) == -1 ) continue;
         if (binary_search(Hexagonal, val, val) == -1) continue;
-        printf("%lld\n", val);
+        printf("%ld\n", val);
         break;
     }
 

@@ -1,0 +1,17 @@
+/*************************************************************************
+	> File Name: forcount.cpp
+	> Author: luowen
+	> Mail: PohZero_Luo@163.com
+	> Created Time: Sat 12 Dec 2020 09:48:46 PM CST
+ ************************************************************************/
+
+#include<iostream>
+
+int main() {
+    int sum = 0;
+    // 从 1 加到 10
+    for (int val = 1; val <= 10; ++val)
+        sum += val;     // 等价于 sum = sum + val
+    std::cout << "Sum of 1 to 10 inclusive is " << sum << std::endl;
+    return 0;
+}
